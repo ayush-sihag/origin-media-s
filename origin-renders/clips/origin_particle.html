@@ -2598,4 +2598,5 @@ function tick(now){if(ready&&st){const s=Math.min(15,(now-st)/1000),f=Math.min(3
 document.querySelectorAll('#th button').forEach(b=>b.onclick=()=>{const lt=b.dataset.t==='1';fr.classList.toggle('lt',lt);FG=lt?'#0B0B0B':'#F5F1EA';buildCrisp();document.querySelectorAll('#th button').forEach(x=>x.classList.toggle('on',x===b));});
 $('rp').onclick=play;
 Promise.all([document.fonts.load('500 50px "Cormorant Garamond"'),document.fonts.load('100px "Great Vibes"'),document.fonts.load('800 84px Montserrat')]).catch(()=>{}).then(()=>{T1=sample(drawT1,2);T2=sample(drawT2,2);TW=sample(drawWM,3);buildCrisp();ready=true;play();requestAnimationFrame(tick);});
-</script></div></body></html>
+</script></div></body>
+</html>
