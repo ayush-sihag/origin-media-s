@@ -1,0 +1,14 @@
+{
+  "name": "origin-renders",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "render": "node render.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

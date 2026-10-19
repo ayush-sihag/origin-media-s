@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Origin Media · Film Countdown</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Great+Vibes&family=Montserrat:wght@500;800&display=swap');
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#161616;color:#ddd;font-family:system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;padding:24px 12px}
+button{font:inherit;font-size:13px;padding:7px 12px;border-radius:8px;border:1px solid #3a3a3a;background:#222;color:#ddd;cursor:pointer}
+button.on{border-color:#E8692D;color:#fff}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:12px;max-width:560px}
+#tm{font-size:13px;color:#999;min-width:80px}
+.fr{--bg:#050505;--fg:#F5F1EA;--mu:#8a847c;--ln:rgba(245,241,234,.14);position:relative;width:360px;height:640px;background:var(--bg);overflow:hidden;border-radius:12px;flex:none}
+.fr.lt{--bg:#FAF7F2;--fg:#0B0B0B;--mu:#7a746c;--ln:rgba(11,11,11,.14)}
+.ctr{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-bottom:80px;pointer-events:none}
+.wm{display:flex;flex-direction:column;font-family:'Montserrat',sans-serif;font-weight:800;color:var(--fg);font-size:84px;line-height:1;letter-spacing:-.01em}
+.r1{display:flex;align-items:baseline}
+.mk{width:.56em;height:.56em;margin-right:.03em;flex:none;overflow:visible}
+.seg{transform-box:fill-box;transform-origin:center;opacity:0}
+.arc{stroke:var(--fg)}
+.l{display:inline-block;opacity:0}.i{position:relative}
+.tt{position:absolute;left:50%;top:.12em;width:.17em;height:.17em;margin-left:-.085em;background:#E8692D}
+.md{align-self:flex-end;font-size:.3em;margin-top:-.15em;letter-spacing:0;opacity:0}
+.el{position:absolute;left:0;right:0;text-align:center;opacity:0}
+.sr{font-family:'Cormorant Garamond',serif;color:var(--fg);font-weight:500;line-height:1.08}
+.sc{font-family:'Great Vibes',cursive;color:#E8692D;line-height:1}
+.hdl{font-family:'Montserrat',sans-serif;font-weight:500;color:#E8692D;font-size:13px;letter-spacing:.04em}
+.ru{height:1px;background:#E8692D;width:60px;margin:14px auto 0}
+.spk{position:absolute;top:0;width:22px;height:640px;overflow:hidden;opacity:0}
+.hl{position:absolute;left:0;top:0;width:22px;height:720px}
+.sh{position:absolute;left:5px;width:12px;height:18px;border-radius:3px;background:var(--fg);opacity:.2}
+.cd{position:absolute;left:0;top:140px;width:360px;height:360px;opacity:0}
+.cl{stroke:var(--fg)}
+.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:150px;color:var(--fg)}
+.bm{position:absolute;inset:0;background:var(--fg);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);opacity:0}
+.fl{position:absolute;inset:0;background:var(--fg);opacity:0;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="fr" id="fr">
+  <div class="spk" id="spl" style="left:0"><div class="hl" id="hlL"></div></div>
+  <div class="spk" id="spr" style="right:0"><div class="hl" id="hlR"></div></div>
+  <div class="bm" id="bm"></div>
+  <div class="cd" id="cd">
+    <svg width="360" height="360" viewBox="0 0 360 360" aria-hidden="true">
+      <circle id="pie" cx="180" cy="180" r="60" fill="none" stroke="rgba(232,105,45,.42)" stroke-width="120" stroke-dasharray="377" stroke-dashoffset="377" transform="rotate(-90 180 180)"/>
+      <circle class="cl" cx="180" cy="180" r="150" fill="none" stroke-width="2"/>
+      <circle class="cl" cx="180" cy="180" r="128" fill="none" stroke-width="1" opacity=".6"/>
+      <line class="cl" x1="10" y1="180" x2="350" y2="180" stroke-width="1" opacity=".4"/>
+      <line class="cl" x1="180" y1="10" x2="180" y2="350" stroke-width="1" opacity=".4"/>
+    </svg>
+    <div class="num" id="num"></div>
+  </div>
+  <div class="el" id="ta" style="top:218px"><div class="sr" style="font-size:52px">Your brand</div><div class="sc" style="font-size:60px;margin-top:4px">has a story.</div></div>
+  <div class="el" id="tb" style="top:226px"><div class="sr" style="font-size:52px">Let's</div><div class="sc" style="font-size:76px;margin-top:2px">tell it.</div></div>
+  <canvas id="cv" style="position:absolute;left:0;top:0;width:360px;height:640px;pointer-events:none"></canvas>
+  <div class="ctr"><div class="wm"><div class="r1"><svg class="mk" id="mk" viewBox="8 8 84 84" aria-hidden="true"><line class="seg" x1="29.2" y1="38" x2="15.4" y2="30" stroke="#E8692D" stroke-width="11"/><line class="seg" x1="26" y1="50" x2="10" y2="50" stroke="#E8692D" stroke-width="11"/><line class="seg" x1="29.2" y1="62" x2="15.4" y2="70" stroke="#E8692D" stroke-width="11"/><path class="arc" id="arc" d="M42 20.1 A31 31 0 1 1 42 79.9" fill="none" stroke-width="18" stroke-dasharray="114" stroke-dashoffset="114"/></svg><span class="l">r</span><span class="l i">ı<b class="tt"></b></span><span class="l">g</span><span class="l i">ı<b class="tt"></b></span><span class="l">n</span></div><div class="md" id="md">media</div></div></div>
+  <div class="el" id="tl" style="top:390px"><div class="sr" id="t1" style="font-size:26px"></div><div class="sc" id="t2" style="margin-top:6px"></div><div class="ru" id="ru"></div></div>
+  <div class="el" id="hd" style="top:572px"><div class="hdl">@originmedia.ind</div></div>
+  <div class="fl" id="fl"></div>
+</div>
+<div class="ctl" id="thm"><button data-t="0" class="on">Dark theme</button><button data-t="1">Light theme</button></div>
+<div class="ctl" id="tgs"></div>
+<div class="ctl"><button id="rp">Replay</button><span id="tm">0.0 / 15s</span></div>
+<script>
+const $=id=>document.getElementById(id);
+let onTheme=null,frameUpd=null,TI=0,A=[],st=0;
+const fr=$('fr'),mk=$('mk'),arc=$('arc'),md=$('md'),tl=$('tl'),t1=$('t1'),t2=$('t2'),ru=$('ru'),hd=$('hd'),tmEl=$('tm');
+const segs=[...document.querySelectorAll('.seg')],ls=[...document.querySelectorAll('.l')],tts=[...document.querySelectorAll('.tt')];
+const TAG=[['Every great brand has an','origin.',50],['Where great brands','begin.',56],['Stories worth','the scroll.',52],['Built to be','remembered.',50],['Rooted in story.','Built to move.',46]];
+function setTag(){t1.textContent=TAG[TI][0];t2.textContent=TAG[TI][1];t2.style.fontSize=TAG[TI][2]+'px';}
+const tg=$('tgs');TAG.forEach((x,i)=>{const b=document.createElement('button');b.textContent=x[0]+' '+x[1];if(i===TI)b.className='on';b.onclick=()=>{TI=i;[...tg.children].forEach(c=>c.classList.toggle('on',c===b));setTag();};tg.appendChild(b);});setTag();
+document.querySelectorAll('#thm button').forEach(b=>b.onclick=()=>{fr.classList.toggle('lt',b.dataset.t==='1');document.querySelectorAll('#thm button').forEach(x=>x.classList.toggle('on',x===b));if(onTheme)onTheme();});
+function an(el,kf,o){const a=el.animate(kf,Object.assign({fill:'both',easing:'ease'},o));A.push(a);return a;}
+const SP='cubic-bezier(.3,1.6,.5,1)',EZ='cubic-bezier(.6,0,.2,1)',FO='cubic-bezier(.2,.8,.2,1)';
+const UP=[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}];
+function endCard(E){
+  const fR=fr.getBoundingClientRect(),m=mk.getBoundingClientRect();
+  const dx=fR.left+180-(m.left+m.width/2),dy=fR.top+300-(m.top+m.height/2),T0='translate('+dx+'px,'+dy+'px) scale(2.6)';
+  segs.forEach((s,i)=>an(s,[{opacity:0,transform:'scale(.3)'},{opacity:1,transform:'scale(1)'}],{duration:420,delay:E+i*110,easing:SP}));
+  an(arc,[{strokeDashoffset:114},{strokeDashoffset:0}],{duration:750,delay:E+100,easing:'ease-out'});
+  an(mk,[{transform:T0,offset:0},{transform:T0,offset:.55,easing:EZ},{transform:'none',offset:1}],{duration:1800,delay:E,easing:'linear'});
+  ls.forEach((l,i)=>an(l,[{opacity:0,transform:'translateX(-.15em)'},{opacity:1,transform:'none'}],{duration:420,delay:E+1350+i*60}));
+  tts.forEach((x,i)=>an(x,[{opacity:0,transform:'translateY(-.4em) scale(.4)'},{opacity:1,transform:'none'}],{duration:420,delay:E+1850+i*130,easing:SP}));
+  an(md,[{opacity:0,transform:'translateX(.4em)'},{opacity:1,transform:'none'}],{duration:450,delay:E+2050});
+  an(tl,UP,{duration:700,delay:E+2550});
+  an(ru,[{width:'0px'},{width:'60px'}],{duration:600,delay:E+3000});
+  an(hd,UP,{duration:600,delay:E+3250});
+}
+const spl=$('spl'),spr=$('spr'),hlL=$('hlL'),hlR=$('hlR'),cd=$('cd'),num=$('num'),pie=$('pie'),bm=$('bm'),ta=$('ta'),tb=$('tb'),fl=$('fl'),cv=$('cv');
+[hlL,hlR].forEach(h=>{for(let i=0;i<18;i++){const d=document.createElement('div');d.className='sh';d.style.top=(i*40+11)+'px';h.appendChild(d);}});
+const W=360,H=640,dpr=Math.min(3,window.devicePixelRatio||1);cv.width=W*dpr;cv.height=H*dpr;const ctx=cv.getContext('2d');ctx.scale(dpr,dpr);
+let FG='#F5F1EA';onTheme=()=>{FG=fr.classList.contains('lt')?'#0B0B0B':'#F5F1EA';};
+function grain(n,a){ctx.globalAlpha=a;ctx.fillStyle=FG;for(let i=0;i<n;i++)ctx.fillRect(Math.random()*W,Math.random()*H,1.2,1.2);}
+function scratch(col,a){ctx.globalAlpha=a;ctx.fillStyle=col;ctx.fillRect(Math.random()*W,0,1,H);}
+frameUpd=function(s){
+  num.textContent=s<.3?'':s<1.5?'3':s<2.7?'2':s<3.9?'1':'';
+  pie.setAttribute('stroke-dashoffset',s<.3||s>=3.9?377:(377*(1-(((s-.3)%1.2)/1.2))).toFixed(1));
+  const off=(s*360)%40;hlL.style.transform=hlR.style.transform='translateY('+(-off)+'px)';
+  ctx.clearRect(0,0,W,H);
+  if(s<3.9){
+    grain(260,.09);
+    ctx.globalAlpha=Math.random()*.06;ctx.fillStyle=FG;ctx.fillRect(0,0,W,H);
+    const n=Math.floor(Math.random()*3);for(let i=0;i<n;i++)scratch(Math.random()<.5?'#E8692D':FG,.35);
+  }else if(s<10.3){
+    grain(120,.05);
+    ctx.globalAlpha=.35;ctx.fillStyle=FG;
+    for(let k=0;k<36;k++){const y=((k*53)%560)+40+Math.sin(s*.7+k)*10,hw=14.4+165.6*(y/640),x=180+Math.sin(k*7.3+s*.3)*hw*.85;ctx.fillRect(x,y,1.6,1.6);}
+    if(Math.random()<.04)scratch(FG,.2);
+  }
+  ctx.globalAlpha=1;
+};
+function play(){
+  A.forEach(a=>a.cancel());A=[];
+  [spl,spr].forEach(e=>{an(e,[{opacity:0},{opacity:1}],{duration:300,delay:100});an(e,[{opacity:1},{opacity:0}],{duration:250,delay:3800,fill:'forwards'});});
+  an(cd,[{opacity:0,transform:'scale(.96)'},{opacity:1,transform:'none'}],{duration:300,delay:100});
+  an(cd,[{opacity:1,transform:'none'},{opacity:0,transform:'scale(1.15)'}],{duration:250,delay:3850,fill:'forwards'});
+  an(fl,[{opacity:0},{opacity:.35,offset:.2},{opacity:0}],{duration:500,delay:3900});
+  an(bm,[{opacity:0},{opacity:.06,offset:.08},{opacity:.06,offset:.92},{opacity:0}],{duration:6300,delay:4000,easing:'linear'});
+  an(ta,[{opacity:0,filter:'blur(12px)',transform:'scale(1.05)'},{opacity:1,filter:'blur(0px)',transform:'none'}],{duration:900,delay:4400,easing:FO});
+  an(ta,[{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(10px)'}],{duration:500,delay:6800,fill:'forwards'});
+  an(tb,[{opacity:0,filter:'blur(12px)',transform:'scale(1.05)'},{opacity:1,filter:'blur(0px)',transform:'none'}],{duration:900,delay:7300,easing:FO});
+  an(tb,[{opacity:1,filter:'blur(0px)'},{opacity:0,filter:'blur(10px)'}],{duration:500,delay:9700,fill:'forwards'});
+  endCard(10500);
+  st=performance.now();
+}
+function tick(now){if(st){const s=Math.min(15,(now-st)/1000);if(frameUpd)frameUpd(s);tmEl.textContent=s.toFixed(1)+' / 15s';}requestAnimationFrame(tick);}
+$('rp').onclick=play;
+Promise.all([document.fonts.load('800 84px Montserrat'),document.fonts.load('800 150px Montserrat'),document.fonts.load('500 52px "Cormorant Garamond"'),document.fonts.load('76px "Great Vibes"')]).catch(()=>{}).then(()=>{play();requestAnimationFrame(tick);});
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Origin Media · Your Brand Has a Story</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Great+Vibes&family=Montserrat:wght@500;800&display=swap');
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#161616;color:#ddd;font-family:system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;padding:24px 12px}
+button{font:inherit;font-size:13px;padding:7px 12px;border-radius:8px;border:1px solid #3a3a3a;background:#222;color:#ddd;cursor:pointer}
+button.on{border-color:#E8692D;color:#fff}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:12px;max-width:560px}
+#tm{font-size:13px;color:#999;min-width:80px}
+.fr{--bg:#050505;--fg:#F5F1EA;--s1:#0d0d0d;--s2:#141110;--gap:#030303;--floor:#090909;--floorhi:#121212;--fline:#4a2410;--glow:rgba(232,105,45,.2);--vig:rgba(0,0,0,.55);position:relative;width:360px;height:640px;background:var(--bg);overflow:hidden;border-radius:12px;flex:none}
+.fr.lt{--bg:#FAF7F2;--fg:#0B0B0B;--s1:#EEE8DF;--s2:#E6DCCD;--gap:#D9CFC1;--floor:#E8E1D6;--floorhi:#F3EEE6;--fline:rgba(232,105,45,.45);--glow:rgba(232,105,45,.22);--vig:rgba(60,40,20,.12)}
+.scene{position:absolute;inset:0;transform-origin:50% 60%;opacity:0}
+.sl{position:absolute;top:0;left:0;right:0;bottom:140px;display:flex}
+.sl div{flex:1;background:var(--s1);border-right:4px solid var(--gap)}
+.sl div:nth-child(4n){background:var(--s2)}
+.sw{position:absolute;top:0;bottom:140px;width:130px;left:-150px;background:linear-gradient(90deg,transparent,var(--glow),transparent)}
+.floor{position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(180deg,var(--floorhi),var(--floor) 45%);border-top:1px solid var(--fline)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 45%,var(--vig) 100%);pointer-events:none}
+.ctr{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-bottom:80px;pointer-events:none}
+.wm{display:flex;flex-direction:column;font-family:'Montserrat',sans-serif;font-weight:800;color:var(--fg);font-size:84px;line-height:1;letter-spacing:-.01em}
+.r1{display:flex;align-items:baseline}
+.mk{width:.56em;height:.56em;margin-right:.03em;flex:none;overflow:visible}
+.seg{transform-box:fill-box;transform-origin:center;opacity:0}
+.arc{stroke:var(--fg)}
+.l{display:inline-block;opacity:0}.i{position:relative}
+.tt{position:absolute;left:50%;top:.12em;width:.17em;height:.17em;margin-left:-.085em;background:#E8692D}
+.md{align-self:flex-end;font-size:.3em;margin-top:-.15em;letter-spacing:0;opacity:0}
+.el{position:absolute;left:0;right:0;text-align:center;opacity:0}
+.blk{position:absolute;left:0;right:0;text-align:center}
+.mw{overflow:hidden;padding:.08em 0 .2em;margin:-.08em 0 -.2em}
+.mi{display:block;transform:translateY(140%)}
+.sr{font-family:'Cormorant Garamond',serif;color:var(--fg);font-weight:500;line-height:1.08}
+.sc{font-family:'Great Vibes',cursive;color:#E8692D;line-height:1}
+.cp{font-family:'Montserrat',sans-serif;font-weight:500;letter-spacing:.3em;font-size:11px;line-height:16px;color:var(--fg)}
+.hdl{font-family:'Montserrat',sans-serif;font-weight:500;color:#E8692D;font-size:13px;letter-spacing:.04em}
+.ru,.ln{height:1px;background:#E8692D;width:60px;margin:14px auto 0}
+.ln{width:0}
+</style>
+</head>
+<body>
+<div class="fr" id="fr">
+  <div class="scene" id="scene">
+    <div class="sl"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="sw" id="sw"></div>
+    <div class="floor"></div>
+  </div>
+  <div class="vig"></div>
+  <div class="el" id="a" style="top:292px"><div class="cp">ORIGIN MEDIA PRESENTS</div><div class="ln" id="ln"></div></div>
+  <div class="blk" id="b" style="top:210px">
+    <div class="mw"><div class="mi sr" style="font-size:52px">Your brand</div></div>
+    <div class="mw"><div class="mi sc" style="font-size:60px">has a story.</div></div>
+  </div>
+  <div class="blk" id="c" style="top:196px">
+    <div class="mw"><div class="mi sr" style="font-size:42px">We give it</div></div>
+    <div class="mw"><div class="mi sc" style="font-size:52px">meaning, voice</div></div>
+    <div class="mw"><div class="mi sr" style="font-size:42px">&amp; impact.</div></div>
+  </div>
+  <div class="ctr"><div class="wm"><div class="r1"><svg class="mk" id="mk" viewBox="8 8 84 84" aria-hidden="true"><line class="seg" x1="29.2" y1="38" x2="15.4" y2="30" stroke="#E8692D" stroke-width="11"/><line class="seg" x1="26" y1="50" x2="10" y2="50" stroke="#E8692D" stroke-width="11"/><line class="seg" x1="29.2" y1="62" x2="15.4" y2="70" stroke="#E8692D" stroke-width="11"/><path class="arc" id="arc" d="M42 20.1 A31 31 0 1 1 42 79.9" fill="none" stroke-width="18" stroke-dasharray="114" stroke-dashoffset="114"/></svg><span class="l">r</span><span class="l i">ı<b class="tt"></b></span><span class="l">g</span><span class="l i">ı<b class="tt"></b></span><span class="l">n</span></div><div class="md" id="md">media</div></div></div>
+  <div class="el" id="tl" style="top:390px"><div class="sr" id="t1" style="font-size:26px"></div><div class="sc" id="t2" style="margin-top:6px"></div><div class="ru" id="ru"></div></div>
+  <div class="el" id="hd" style="top:572px"><div class="hdl">@originmedia.ind</div></div>
+</div>
+<div class="ctl" id="thm"><button data-t="0" class="on">Dark theme</button><button data-t="1">Light theme</button></div>
+<div class="ctl" id="tgs"></div>
+<div class="ctl"><button id="rp">Replay</button><span id="tm">0.0 / 15s</span></div>
+<script>
+const $=id=>document.getElementById(id);
+let onTheme=null,frameUpd=null,TI=0,A=[],st=0;
+const fr=$('fr'),mk=$('mk'),arc=$('arc'),md=$('md'),tl=$('tl'),t1=$('t1'),t2=$('t2'),ru=$('ru'),hd=$('hd'),tmEl=$('tm');
+const segs=[...document.querySelectorAll('.seg')],ls=[...document.querySelectorAll('.l')],tts=[...document.querySelectorAll('.tt')];
+const TAG=[['Every great brand has an','origin.',50],['Where great brands','begin.',56],['Stories worth','the scroll.',52],['Built to be','remembered.',50],['Rooted in story.','Built to move.',46]];
+function setTag(){t1.textContent=TAG[TI][0];t2.textContent=TAG[TI][1];t2.style.fontSize=TAG[TI][2]+'px';}
+const tg=$('tgs');TAG.forEach((x,i)=>{const b=document.createElement('button');b.textContent=x[0]+' '+x[1];if(i===TI)b.className='on';b.onclick=()=>{TI=i;[...tg.children].forEach(c=>c.classList.toggle('on',c===b));setTag();};tg.appendChild(b);});setTag();
+document.querySelectorAll('#thm button').forEach(b=>b.onclick=()=>{fr.classList.toggle('lt',b.dataset.t==='1');document.querySelectorAll('#thm button').forEach(x=>x.classList.toggle('on',x===b));if(onTheme)onTheme();});
+function an(el,kf,o){const a=el.animate(kf,Object.assign({fill:'both',easing:'ease'},o));A.push(a);return a;}
+const SP='cubic-bezier(.3,1.6,.5,1)',EZ='cubic-bezier(.6,0,.2,1)',FO='cubic-bezier(.2,.8,.2,1)';
+const UP=[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}];
+function endCard(E){
+  const fR=fr.getBoundingClientRect(),m=mk.getBoundingClientRect();
+  const dx=fR.left+180-(m.left+m.width/2),dy=fR.top+300-(m.top+m.height/2),T0='translate('+dx+'px,'+dy+'px) scale(2.6)';
+  segs.forEach((s,i)=>an(s,[{opacity:0,transform:'scale(.3)'},{opacity:1,transform:'scale(1)'}],{duration:420,delay:E+i*110,easing:SP}));
+  an(arc,[{strokeDashoffset:114},{strokeDashoffset:0}],{duration:750,delay:E+100,easing:'ease-out'});
+  an(mk,[{transform:T0,offset:0},{transform:T0,offset:.55,easing:EZ},{transform:'none',offset:1}],{duration:1800,delay:E,easing:'linear'});
+  ls.forEach((l,i)=>an(l,[{opacity:0,transform:'translateX(-.15em)'},{opacity:1,transform:'none'}],{duration:420,delay:E+1350+i*60}));
+  tts.forEach((x,i)=>an(x,[{opacity:0,transform:'translateY(-.4em) scale(.4)'},{opacity:1,transform:'none'}],{duration:420,delay:E+1850+i*130,easing:SP}));
+  an(md,[{opacity:0,transform:'translateX(.4em)'},{opacity:1,transform:'none'}],{duration:450,delay:E+2050});
+  an(tl,UP,{duration:700,delay:E+2550});
+  an(ru,[{width:'0px'},{width:'60px'}],{duration:600,delay:E+3000});
+  an(hd,UP,{duration:600,delay:E+3250});
+}
+function revealLines(el,delay,step){
+  [...el.querySelectorAll('.mi')].forEach((line,i)=>{
+    an(line,[{transform:'translateY(140%)'},{transform:'none'}],{duration:750,delay:delay+i*step,easing:FO});
+  });
+}
+function play(){
+  A.forEach(a=>a.cancel());A=[];
+  an($('scene'),[{opacity:0,transform:'scale(1.06)'},{opacity:1,transform:'scale(1)'}],{duration:1100,delay:100,easing:FO});
+  an($('sw'),[{left:'-150px',opacity:0},{left:'-40px',opacity:.7,offset:.35},{left:'430px',opacity:0}],{duration:1800,delay:450,easing:FO});
+  an($('a'),UP,{duration:650,delay:500,easing:FO});
+  an($('ln'),[{width:'0px'},{width:'60px'}],{duration:500,delay:900,easing:'ease-out'});
+  an($('a'),[{opacity:1},{opacity:0,transform:'translateY(-8px)'}],{duration:500,delay:2100,fill:'forwards'});
+
+  revealLines($('b'),2900,180);
+  an($('b'),[{opacity:1},{opacity:0,transform:'translateY(-12px)'}],{duration:500,delay:5000,fill:'forwards'});
+  revealLines($('c'),5650,180);
+  an($('c'),[{opacity:1},{opacity:0,transform:'translateY(-12px)'}],{duration:500,delay:9300,fill:'forwards'});
+  endCard(10100);
+  st=performance.now();
+}
+function tick(now){
+  if(st)tmEl.textContent=Math.min(15,(now-st)/1000).toFixed(1)+' / 15s';
+  requestAnimationFrame(tick);
+}
+$('rp').onclick=play;
+Promise.all([
+  document.fonts.load('800 84px Montserrat'),
+  document.fonts.load('500 11px Montserrat'),
+  document.fonts.load('500 52px "Cormorant Garamond"'),
+  document.fonts.load('60px "Great Vibes"'),
+]).catch(()=>{}).then(()=>{play();requestAnimationFrame(tick);});
+</script>
+</body>
+</html>
